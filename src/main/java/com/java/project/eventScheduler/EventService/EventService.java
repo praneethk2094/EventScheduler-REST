@@ -9,7 +9,7 @@ public interface EventService {
 
     List<Event> getAllEvents();
 
-    void deleteEvent(String id);
+    void deleteEventbyId(String id);
 
     Event addEvent(Event event);
 

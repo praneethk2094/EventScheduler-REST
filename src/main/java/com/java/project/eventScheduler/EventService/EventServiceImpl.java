@@ -28,7 +28,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void deleteEvent(String id) {
+    public void deleteEventbyId(String id) {
         eventRepository.delete(id);
     }
 

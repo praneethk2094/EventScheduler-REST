@@ -33,8 +33,8 @@ public class EventController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String deleteEvent(@PathVariable("id") String eventId) {
-        eventService.deleteEvent(eventId);
+    public String deleteEventById(@PathVariable("id") String eventId) {
+        eventService.deleteEventbyId(eventId);
         return "Deleted Successfully";
     }
 
