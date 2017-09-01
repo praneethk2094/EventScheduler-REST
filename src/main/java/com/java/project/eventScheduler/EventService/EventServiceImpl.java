@@ -2,6 +2,7 @@ package com.java.project.eventScheduler.EventService;
 
 import com.java.project.eventScheduler.Entity.Event;
 import com.java.project.eventScheduler.EventRepository.EventRepository;
+import com.java.project.eventScheduler.Exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,16 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Event getEvent(String id) {
-        return eventRepository.findOne(id);
-
+        Event event;
+        event = eventRepository.findOne(id);
+        if (event == null) {
+            try {
+                throw new NotFoundException("No event with Id");
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return event;
     }
 
     @Override
